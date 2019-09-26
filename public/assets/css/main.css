@@ -1,18 +1,31 @@
 
-/* .row.no-margin {
+.row.no-margin {
   margin: 0 ! important;
   padding: 0 ! important;
-} */
+}
  
-.container {
+.body {
+  margin: 0px;
   padding: 0px;
-  margin: 0px
+
 }
 
-.jumbotron  {
+.container {
+  margin: 0 ! important;
+  padding: 0 ! important;
+}
+
+#pickup  {
   background-color: red;
   color: white;
   border-radius: 0px;
+  margin: 0px;
+} 
+#ready  {
+  background-color: black;
+  color: white;
+  border-radius: 0px;
+  margin: 0px;
 } 
 
 #left-side {
@@ -21,10 +34,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-origin: center;
-  height: 800px;
+  height: 750px;
 }
 
 #right-side {
   /* background-color: chartreuse; */
   padding: 0px;
+  margin: 0px;
 }

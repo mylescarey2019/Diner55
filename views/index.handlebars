@@ -4,16 +4,36 @@
       {{!-- <img src="/assets/img/spencer-davis-o_XkavUaGEw-unsplash.jpg" alt="diner"> --}}
     </div>
     <div id="right-side" class="col-8">
-      <div class="jumbotron fluid">
-        <h1 id="name">Diner 55  - Server-Kitchen Order System</h1>
+      <div id="pickup" class="jumbotron fluid">
+        <h1 >Diner 55  - Server-Kitchen Order System</h1>
         <h3>Submit Order to Kitchen /  Order Up </h3>
         <hr>
         <h4>Enter new order OR mark order as ready</h5>
         <hr>
         <h5>
-          {{> diner/diner-hello }}
+          <ul>
+            {{#each orders}}
+              {{#unless is_served}}
+                 {{> orders/order-item}}
+              {{/unless}}
+            {{/each}}
+          </ul>
         </h5>
       </div>
+      <div id="ready" class="jumbotron fluid">
+        <h1 >Orders Ready:</h1>
+
+        <h5>
+          <ul>
+            {{#each orders}}
+              {{#if is_served}}
+                {{> orders/order-item}}
+              {{/if}}  
+            {{/each}}
+          </ul>
+        </h5>
+      </div>
+
     </div>
   </div>
 
