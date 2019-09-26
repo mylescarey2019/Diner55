@@ -1,0 +1,30 @@
+
+/* .row.no-margin {
+  margin: 0 ! important;
+  padding: 0 ! important;
+} */
+ 
+.container {
+  padding: 0px;
+  margin: 0px
+}
+
+.jumbotron  {
+  background-color: red;
+  color: white;
+  border-radius: 0px;
+} 
+
+#left-side {
+  /* background-color: aquamarine; */
+  background-image: url(/assets/img/spencer-davis-o_XkavUaGEw-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-origin: center;
+  height: 800px;
+}
+
+#right-side {
+  /* background-color: chartreuse; */
+  padding: 0px;
+}

@@ -1,5 +1,5 @@
 {
-  "name": "Diner55",
+  "name": "diner55",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/mylescarey2019/Diner55/issues"
   },
-  "homepage": "https://github.com/mylescarey2019/Diner55#readme"
+  "homepage": "https://github.com/mylescarey2019/Diner55#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mysql": "^2.17.1"
+  }
 }
