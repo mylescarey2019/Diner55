@@ -15,7 +15,7 @@ var orm = require("../config/orm.js");
   // and true generic methods could be created for select * and insert
 
 var foodorder = {
-    all: function(cb) { 
+  all: function(cb) { 
     orm.all("food_order","food_server","food_server_id","food_server_name", function(res) {
       cb(res)
     });

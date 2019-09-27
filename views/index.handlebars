@@ -20,8 +20,30 @@
           </ul>
         </h6>
       </div>
+      <div id="order-form" class="row">
+        <div class="col">
+          <form>
+            <div class="form-group">
+              <label for="order-input">Enter order</label>
+              <input type="text" class="form-control" id="order" placeholder="">
+            </div>
+            <div class="form-group">
+              <label class="server-label" id="server-list" for="server-list"></label>
+              <select class="form-control" id="server-ctl">
+                {{!-- <option value="" selected="selected" hidden="hidden"  >Select server</option>
+                <option value="1">1 - Not Important</option>
+                <option value="2">2 - Slightly Important</option>
+                <option value="3">3 - Somewhat Important</option>
+                <option value="4">4 - Very Important</option>
+                <option value="5">5 - Extremely Important</option> --}}
+              </select>
+            </div>
+            <input id="submit" class="btn btn-success" type="submit" value="Submit">
+          </form>
+        </div>
+      </div>
       <div id="ready" class="jumbotron fluid">
-        <h1 >Orders Ready:</h1>
+        <h1 >Orders Served:</h1>
 
         <h6>
           <ul>
@@ -37,6 +59,26 @@
     </div>
   </div>
 
+</div>
+
+<div id="my-modal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content custom">
+      <div class="modal-header">
+        <h5 class="modal-title">Enter Order for Kitchen</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Please fill in both order and select a server</p>
+        <p>Thank you.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
 
  

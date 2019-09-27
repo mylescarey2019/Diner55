@@ -49,7 +49,11 @@ function objToSql(ob) {
 
 //define the Object Relational Mapper (ORM) object and its methods then export
 var orm = {
-  // select all from table
+  // select all from table - this is specific for food_order table so not 
+  // fully taking advantage of orm concept
+  // because it has foreign key join to food_server table
+  // did not have time to bite off effort to make a mutli-table select
+  // fully dynamic & resusable
   all: function(tableName,tableName2,foreignKey,foreignKeyNameCol,cb) {
     var query = "SELECT " + tableName + ".*,";
     query += tableName2 + "." + foreignKeyNameCol;
@@ -105,7 +109,8 @@ var orm = {
   delete: function(tableName,condition,cb) {
     var query = "DELETE FROM " + tableName;
     query += " WHERE ";
-    query += connection;
+    query += condition;
+    console.log(`DELETING A ROW ${query}`);
     connection.query(query,function(err,result) {
       if (err) {
         throw err;

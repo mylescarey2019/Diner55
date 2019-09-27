@@ -37,3 +37,32 @@ app.use(routes);
 app.listen(PORT, function() {
   console.log("App now listening at localhost:" + PORT);
 });
+
+
+// this is a kludge to allow for selecting all food_server rows.
+// To do this within the MVC model and render on the main page as a handlebars
+// partial is beyond scope for this effort and beyond my current knowledge
+// will use a direct route call to mysql and render in the order form food server
+// select control on page load via /public/diner.js
+
+// If the main route is hit, then we initiate a SQL query to grab all students.
+// All of the resulting records are stored in the variable "result."
+var connection = require("./config/connection.js");
+
+var query = "SELECT  s.food_server_id \
+                    ,s.food_server_name \
+              FROM food_server AS s \
+          ORDER BY s.food_server_name";
+
+  // routes
+
+  //  get students route
+  app.get("/api/foodservers", function(req, res) {
+    console.log("in apiRoutes. /api/foodservers");
+
+    connection.query(query, function(err, result) {
+      if (err) throw err;
+      console.log(result);
+      res.json(result);
+    });
+  });

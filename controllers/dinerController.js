@@ -4,7 +4,7 @@ var express = require("express");
 // import router
 var router = express.Router();
 
-//import diner model
+//import diner models
 var foodorder = require("../models/foodorder.js");
 
 //Routes
@@ -22,7 +22,6 @@ router.get("/", function(req,res) {
     // res.render("index",{greeting: "Hello Word"});
   });
 });
-
 
 // insert one order
 router.post("/api/foodorder", function(req,res) {
@@ -53,7 +52,7 @@ router.put("/api/foodorder/:id", function(req,res) {
 
 // delete an order
 router.delete("/api/foodorder/:id", function(req,res) {
-  var condition = "food_order_id" + req.params.id;
+  var condition = "food_order_id = " + req.params.id;
   foodorder.delete(condition, function(result) {
     if (result.affectedRows === 0) {
       return res.status(404).end(); // id must have been bad in no row deleted
