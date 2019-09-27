@@ -1,14 +1,13 @@
 <div class="container">
   <div class="row no-margin">
-    <div id="left-side" class="col-4">
-      {{!-- <img src="/assets/img/spencer-davis-o_XkavUaGEw-unsplash.jpg" alt="diner"> --}}
+    <div id="left-side" class="col-2">
     </div>
     <div id="right-side" class="col-8">
       <div id="pickup" class="jumbotron fluid">
         <h1 >Diner 55</h1>
         <h2 >Server Kitchen Order Up System</h1>
-        <h4>Orders Ready for Pickup</h5>
-        <h6>
+        <h5>Orders Ready for Pickup</h5>
+        <div class="table-grid">
           <table>
             <tr>
               <th></th>
@@ -22,28 +21,31 @@
               {{/unless}}
             {{/each}}
           </table>
-        </h6>
+        </div>
       </div>
-      <div id="order-form" class="row">
-        <div class="col">
-          <form>
-            <div class="form-group">
-              <label for="order-input">Enter order</label>
-              <input type="text" class="form-control" id="order" placeholder="">
-            </div>
-            <div class="form-group">
-              <label class="server-label" id="server-list" for="server-list"></label>
-              <select class="form-control" id="server-selection">
-              </select>
-            </div>
-            <input id="submit" class="btn btn-success" type="submit" value="Submit">
-          </form>
+      <div id="enter-order" class="jumbotron fluid">
+        <h5>Enter New Order</h5>
+        <div id="order-form" class="row">
+          <div class="col">
+            <form>
+              <div  id="order-box" class="form-group">
+                <label for="order-input">Enter order</label>
+                <input type="text" class="form-control" id="order" placeholder="">
+              </div>
+              <div class="form-group">
+                <label class="server-label" id="server-list" for="server-list"></label>
+                <select class="form-control" id="server-selection">
+                </select>
+              </div>
+              {{!-- <input id="submit" class="btn btn-success" type="submit" value="Submit"> --}}
+              <input id="submit" class="button" type="submit" value="Submit">
+            </form>
+          </div>
         </div>
       </div>
       <div id="ready" class="jumbotron fluid">
-        <h4 >Orders Served</h4>
-
-        <h6>
+        <h5 >Orders Served</h5>
+         <div class="table-grid">
           <table>
             <tr>
               <th></th>
@@ -57,12 +59,12 @@
               {{/if}}  
             {{/each}}
          </table>
-        </h6>
+        </div>
       </div>
-
+    </div>
+    <div class="col-2">
     </div>
   </div>
-
 </div>
 
 <div id="my-modal" class="modal" tabindex="-1" role="dialog">
@@ -79,12 +81,23 @@
         <p>Thank you.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="button" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
 
- 
+<footer id="footer-bar" class="navbar">
+  <span id="footer-text" class="navbar-text"> Photo by
+<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, 
+BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu,
+ Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" 
+ href="https://unsplash.com/@spencerdavis?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" 
+ title="Download free do whatever you want high-resolution photos from Spencer Davis"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg"
+  style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z">
+
+</path></svg></span><span style="display:inline-block;padding:2px 3px">Spencer Davis</span></a>
+  </span>
+</footer> 
 
 
