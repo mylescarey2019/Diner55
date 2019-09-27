@@ -1,9 +1,22 @@
 // import the ORM to be able to interact with the diner database
 var orm = require("../config/orm.js");
 
+  // this model function is slightly specialized because
+  // i choose add a server table in the database and 
+  // and assign a server to an order
+  // thus this model functions for all and create are not generic/resusable 
+  // in the sense that it cannot retrieve all or create for any table
+  //
+  //
+  // of course with some effort they could be smartened up to handle 
+  // a dynamic column postions and foreign key relationship but out of
+  // scope for this exercise
+  //
+  // and true generic methods could be created for select * and insert
+
 var foodorder = {
-  all: function(cb) {
-    orm.all("food_order", function(res) {
+    all: function(cb) { 
+    orm.all("food_order","food_server","food_server_id","food_server_name", function(res) {
       cb(res)
     });
   },

@@ -41,12 +41,24 @@ function objToSql(ob) {
   return arr.toString();
 }
 
+// SELECT food_order.*, food_server.food_server_name
+//   FROM food_order 
+//   JOIN food_server 
+//     ON food_order.food_server_id = food_server.food_server_id
+//  ORDER BY food_server.food_server_name, food_order.food_order_id
 
 //define the Object Relational Mapper (ORM) object and its methods then export
 var orm = {
   // select all from table
-  all: function(tableName,cb) {
-    var query = "SELECT * FROM ??";
+  all: function(tableName,tableName2,foreignKey,foreignKeyNameCol,cb) {
+    var query = "SELECT " + tableName + ".*,";
+    query += tableName2 + "." + foreignKeyNameCol;
+    query += " FROM " + tableName + " JOIN " + tableName2;
+    query += " ON " + tableName + "." + foreignKey + " = ";
+    query += tableName2  + "." + foreignKey;
+    query += " ORDER BY " + tableName2 + "." + foreignKeyNameCol;
+    query += " ," + tableName + "." + foreignKey ;
+    console.log(`QUERY: ${query}`);
     connection.query(query,[tableName], function(err,result) {
       if (err) {
         throw err;

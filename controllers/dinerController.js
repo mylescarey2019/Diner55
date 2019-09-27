@@ -37,10 +37,10 @@ router.post("/api/foodorder", function(req,res) {
 // update an order
 router.put("/api/foodorder/:id", function(req,res) {
   var condition = "food_order_id = " + req.params.id;
-  console.log(`WHERE condition is: ${condition}`);
+  console.log(`condition is: ${condition}`);
   foodorder.update(
     {
-      isServed: req.body.isServed
+      is_served: req.body.is_served
     },
     condition,
     function(results) {

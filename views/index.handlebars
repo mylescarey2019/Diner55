@@ -10,28 +10,28 @@
         <hr>
         <h4>Enter new order OR mark order as ready</h5>
         <hr>
-        <h5>
+        <h6>
           <ul>
             {{#each orders}}
               {{#unless is_served}}
-                 {{> orders/order-item}}
+                 {{> orders/order-item newserve=true}}
               {{/unless}}
             {{/each}}
           </ul>
-        </h5>
+        </h6>
       </div>
       <div id="ready" class="jumbotron fluid">
         <h1 >Orders Ready:</h1>
 
-        <h5>
+        <h6>
           <ul>
             {{#each orders}}
               {{#if is_served}}
-                {{> orders/order-item}}
+                {{> orders/order-item newserve=true}}
               {{/if}}  
             {{/each}}
           </ul>
-        </h5>
+        </h6>
       </div>
 
     </div>
