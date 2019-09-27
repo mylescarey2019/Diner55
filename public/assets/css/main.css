@@ -42,3 +42,67 @@
   padding: 0px;
   margin: 0px;
 }
+
+h1 {
+  padding: 10px;
+  text-align: center;
+}
+
+h2 {
+  padding-bottom:  20px;
+  text-align: center;
+  /* border-bottom: 2px solid red */
+}
+
+h4 {
+  padding: 20px 0 20px 0;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+#pickup, #ready {
+  padding: 20px;
+  background-color: white;
+  color: red;
+  /* border: 1px solid black; */
+}
+
+#pickup, #ready {
+  margin: 20px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
+}
+
+/* form input field highlighting when active    #user-name, #photo-path */
+.no-answer {
+  background-color: #e08183;
+}
+
+table {
+  margin: 20px;
+}
+
+table td, table th {
+  border:  1px solid white;
+  padding: 8px;
+  text-align: center;
+}
+
+table tr:hover {background-color: #ddd; color: black}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4892c4;
+  color: white;
+}
+
+button {
+  border: 3px solid #4892c4;
+}
+
+button:hover {
+  background-color: #4892c4;
+  border: 3px solid black;
+}

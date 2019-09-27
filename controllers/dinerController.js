@@ -25,10 +25,10 @@ router.get("/", function(req,res) {
 
 // insert one order
 router.post("/api/foodorder", function(req,res) {
-  foodorder.create(["food_server_id","food_order_name","is_served"],
-    [req.body.serverId,req.body.orderName, req.body.isServed],
+  foodorder.create(["food_server_id","food_order_name"],
+    [req.body.serverId,req.body.orderText],
     function(results) {
-      results.json({id: res.insertId});
+      res.json({id: res.insertId});
     });
 });
 

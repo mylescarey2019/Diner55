@@ -48,56 +48,56 @@ $(function() {
 
 
 
-  // $("#submit").on("click", function(event) {
-  //   event.preventDefault();
+  $("#submit").on("click", function(event) {
+    event.preventDefault();
 
-  //   // validate form entries and
-  //   // create the match user's student profile and then
-  //   // call post api route to add them to the database and receive match results 
-  //   const matchUser = {name: '', photo: '', answers: []};
-  //   var missingAnswers = false;
-  //   console.log($("#user-name").val());
-  //   console.log($("#photo-path").val());
-  //   if ($("#user-name").val() === '') {
-  //     missingAnswers = true;
-  //     console.log("name-undef");
-  //     $("#user-name").addClass('no-answer');
-  //   } else {
-  //     matchUser.name = $("#user-name").val();
-  //   };
+    //remove missing answer warning color if form select made
+    $("#order,#server-selection").change(function() {
+      $(this).removeClass("no-answer");
+    });
 
-  //   // set photo
-  //   if ($("#photo-path").val() === '') {
-  //     matchUser.photo = $("#photo-path").attr("placeholder");
-  //   } else {
-  //     matchUser.photo = $("#photo-path").val();
-  //   };
+    // validate form entries and
+    // call post api route to add order to the database
+    var missingAnswers = false;
+    console.log(`order-text ${$("#order").val()}`);
+    console.log(`server-id ${$("#server-selection").val()}`);
+    var orderText = $("#order").val();
+    var serverId =  $("#server-selection").val();
 
-  //   // evaluate the survey question answers
-  //   var i = 1;
-  //   $(".question").each(function () {
-  //     console.log(`question ${i} ${$(this).val()}`);
-  //     if ($(this).val() === '') {
-  //       console.log('UNDEF');
-  //       missingAnswers = true;
-  //       $(this).addClass('no-answer');
-  //     } else {
-  //       console.log('NOT UNDEF')
-  //       matchUser.answers[i - 1] = $(this).val();
-  //     };
-  //     i++
-  //   });
+    if (orderText === '') {
+      missingAnswers = true;
+      console.log("order-undef");
+      $("#order").addClass('no-answer');
+    };
 
-  //   console.log(`THE USER IS: ${JSON.stringify(matchUser)}`);
+    // validate server selection
+    if (serverId === '') {
+      console.log('server-undef');
+      missingAnswers = true;
+      $("#server-selection").addClass('no-answer');
+    };
 
-  //   if (missingAnswers) {
-  //     $('#my-modal').modal('show');
-  //     return;
-  //   };
+    if (missingAnswers) {
+      $('#my-modal').modal('show');
+      return;
+    };
+ 
+    var newOrder = { serverId : serverId,
+                     orderText : orderText };
 
-  //   // make insert post
+    // make insert post
+    $.ajax("/api/foodorder/", {
+      type: "POST",
+      data: newOrder
+    }).then(
+      function() {
+        console.log("Adding order", newOrder);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
 
-  // });
+  });
 
 
   // retreive servers for the order form control select box
@@ -106,9 +106,9 @@ $(function() {
   }).then(function(res) {
       console.log(res);
       console.log(res[0].food_server_id, res[0].food_server_name);
-      $("#server-ctl").append('<option value="" selected="selected" hidden="hidden"  >Select server</option>');
+      $("#server-selection").append('<option value="" selected="selected" hidden="hidden"  >Select server</option>');
       res.map(foodserver => {
-        $("#server-ctl").append(`<option value"${foodserver.food_server_id}">${foodserver.food_server_name}</option`);
+        $("#server-selection").append(`<option value="${foodserver.food_server_id}">${foodserver.food_server_name}</option`);
       });
     }
   );

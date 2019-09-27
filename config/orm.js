@@ -81,7 +81,7 @@ var orm = {
     query += ") ";
 
     console.log(query);
-    connedction.query(query, vals, function(err,result) {
+    connection.query(query, vals, function(err,result) {
       if (err) {
         throw err;
       }
