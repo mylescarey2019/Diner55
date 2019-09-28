@@ -13,9 +13,9 @@ body {
   background-origin: center;
 }
 
-.container {
-  margin: 0 ! important;
-  padding: 0 ! important;
+.container-no-gutter {
+  margin: 0;
+  padding: 0;
 }
 
 
